@@ -6,6 +6,13 @@ __pycache__/
 *.swp
 *.swo
 
+# Password List Ignore
+HoneyGeneratorAPI/PasswordAPI/static/PasswordAPI/password lists/password_list.txt
+HoneyGeneratorAPI/PasswordAPI/static/PasswordAPI/password lists/phpbb-cleaned-up.txt
+
+# Large file ignore
+HoneyGeneratorAPI/PasswordAPI/static/PasswordAPI/tf_resources/datasets/honeyword_dataset_phpbb.txt
+
 # Virtual environment
 venv/
 env/
