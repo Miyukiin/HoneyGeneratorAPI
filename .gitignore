@@ -1,0 +1,28 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+*.swo
+
+# Virtual environment
+venv/
+env/
+myenv/
+*.env
+
+# Django specific
+*.log
+db.sqlite3
+media/
+staticfiles/
+
+# Migrations
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.su
