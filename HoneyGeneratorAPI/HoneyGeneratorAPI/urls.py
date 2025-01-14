@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('password/', include("PasswordAPI.urls")),
-    path('distributive/', include("DistributiveEncoderAPI.urls"))
+    path('honeypassword/', include("PasswordAPI.urls")),
+    path('honeydistributive/', include("DistributiveEncoderAPI.urls"))
 ]
