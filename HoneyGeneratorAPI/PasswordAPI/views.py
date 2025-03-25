@@ -59,8 +59,7 @@ def hash_honeypasswords(request:HttpRequest):
         try:
             honey_passwords:list[str] = request.POST.get('honeyword_list')
             honey_hashes = []
-            
-            sugarword_index = request.POST.get("sugarword_index", None)
+        
             salt = request.POST.get("salt", None)
 
             if not isinstance(honey_passwords, list):
@@ -87,7 +86,6 @@ def hash_honeypasswords(request:HttpRequest):
             # Return success response
             return JsonResponse({
                 "honeyword_hashes": honey_hashes,
-                "sugarword_index": sugarword_index,
                 "salt": base64.b64encode(salt).decode('utf-8')
             }, status=200)
 
