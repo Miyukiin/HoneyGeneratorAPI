@@ -1,0 +1,4 @@
+Single
+Married
+Widowed
+Separated

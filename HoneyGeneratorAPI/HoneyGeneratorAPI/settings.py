@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "PasswordAPI",
     "DistributiveEncoderAPI",
     "RBMRSAEncryptionAPI",
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

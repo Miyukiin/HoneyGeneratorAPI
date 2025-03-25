@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import generate_dte_seeds, encrypt_dte_seeds, decrypt_dte_seeds, decode_dte_seeds
 
 urlpatterns = [
-
+    path("generate_seeds/", generate_dte_seeds, name="generate_dte_seeds"),
+    path("encrypt_dte_seeds/", encrypt_dte_seeds, name="encrypt_dte_seeds"),
+    path("decrypt_dte_seeds/", decrypt_dte_seeds, name="decrypt_dte_seeds"),
+    path("decode_dte_seeds/", decode_dte_seeds, name="decode_dte_seeds"),
 ]
