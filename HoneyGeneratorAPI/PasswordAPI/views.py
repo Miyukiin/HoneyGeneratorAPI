@@ -1,6 +1,6 @@
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
-from .utils import MLHoneywordGenerator, ExistingPasswordGeneration
+from .utils import MLHoneywordGenerator
 from rest_framework.decorators import api_view
 import argon2
 from Crypto import Random
@@ -60,13 +60,15 @@ def hash_honeypasswords(request:HttpRequest):
             honey_passwords:list[str] = request.data.get('honeyword_list')
             honey_hashes = []
         
-            salt = request.data.get("salt", None)
+            encoded_salt = request.data.get("salt", None)
 
             if not isinstance(honey_passwords, list):
                 return JsonResponse({"error": "honeyword_list must be a list of strings."}, status=400)
             
-            if salt is None:
-                    salt = Random.new().read(16)
+            if encoded_salt is None:
+                salt = Random.new().read(16)
+            else:
+                salt = base64.b64decode(encoded_salt)
                     
             for honey_password in honey_passwords:
                 password_bytes = honey_password.encode("utf-8") # String to bytes
