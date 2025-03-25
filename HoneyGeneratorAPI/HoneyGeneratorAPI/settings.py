@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     
     "PasswordAPI",
     "DistributiveEncoderAPI",
+    "RBMRSAEncryptionAPI",
 ]
 
 MIDDLEWARE = [
@@ -139,6 +140,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "HoneyGeneratorAPI", "static"),
     os.path.join(BASE_DIR, "PasswordAPI", "static"),
     os.path.join(BASE_DIR, "DistributiveEncoderAPI", "static"),
+    os.path.join(BASE_DIR, "RBMRSAEncryptionAPI", "static"),
 ]
 
 # Default primary key field type

@@ -20,5 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('honeypassword/', include("PasswordAPI.urls")),
-    path('honeydistributive/', include("DistributiveEncoderAPI.urls"))
+    path('honeydistributive/', include("DistributiveEncoderAPI.urls")),
+    path('RBMRSA/', include("RBMRSAEncryptionAPI.urls"))
 ]

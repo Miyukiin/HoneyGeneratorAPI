@@ -257,8 +257,9 @@ class ExistingPasswordGeneration:
         self.digit_list =  list(string.digits)
         self.honeyword_list:list[str] = []
     
-    def is_unique_or_list_empty(self, honeyword):
-        if not self.honeyword_list or honeyword not in self.honeyword_list:
+    def is_unique_and_not_sugarword_or_list_empty(self, honeyword):
+        # If list is empty, return true or if honeyword is not in self.honeyword_list and honeyword is not the password
+        if not self.honeyword_list or (honeyword not in self.honeyword_list and honeyword != self.password):
             return True
         else:
             return False
@@ -289,7 +290,7 @@ class ExistingPasswordGeneration:
                         )
                         
                     self.possible_sweetword = "".join(self.password_characters)
-                    if self.is_unique_or_list_empty(self.possible_sweetword):
+                    if self.is_unique_and_not_sugarword_or_list_empty(self.possible_sweetword):
                         self.honeyword_list.append(self.possible_sweetword)
                         
                 self.honeyword_list.append(self.password) # Append sugarword
@@ -315,7 +316,7 @@ class ExistingPasswordGeneration:
                         )
                         
                     self.possible_sweetword = "".join(self.password_characters)
-                    if self.is_unique_or_list_empty(self.possible_sweetword):
+                    if self.is_unique_and_not_sugarword_or_list_empty(self.possible_sweetword):
                         self.honeyword_list.append(self.possible_sweetword)
                         
                 self.honeyword_list.append(self.appended_password) # Append sugarword
@@ -324,9 +325,7 @@ class ExistingPasswordGeneration:
                 return self.honeyword_list, sugarword_index
                     
             case 3: # Chaffing with a Password-model
-                # Ensure working directory is in onlinepatientPortal_project
-                #file_path = Path(r"D:\My Files (LATEST)\Coding\Django Projects\Thesis\HoneyOPPThesisProject\onlinepatientPortal_project\PasswordAPI\static\password lists\password_list.txt")
-                file_path = os.path.join(settings.BASE_DIR, 'PasswordAPI', 'static', 'PasswordAPI', 'password lists', "password_list.txt")
+                file_path =  os.path.join('utilities', 'HPGResources', 'password lists', "password_list.txt")
                 with open( file_path, 'r', encoding='utf-8', errors='ignore') as file:
                     wordlist = [line.strip() for line in file]
                     
@@ -354,7 +353,7 @@ class ExistingPasswordGeneration:
                             sweetword_candidate.append(w[j])
                     
                     self.possible_sweetword = "".join(sweetword_candidate)
-                    if self.is_unique_or_list_empty(self.possible_sweetword):
+                    if self.is_unique_and_not_sugarword_or_list_empty(self.possible_sweetword):
                         self.honeyword_list.append(self.possible_sweetword)
                         
                 self.honeyword_list.append(self.password) # Append sugarword
