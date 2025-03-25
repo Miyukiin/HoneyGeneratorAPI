@@ -60,7 +60,7 @@ def hash_honeypasswords(request:HttpRequest):
             honey_passwords:list[str] = request.data.get('honeyword_list')
             honey_hashes = []
         
-            encoded_salt = request.data.get("salt", None)
+            encoded_salt:str = request.data.get("salt", None)
 
             if not isinstance(honey_passwords, list):
                 return JsonResponse({"error": "honeyword_list must be a list of strings."}, status=400)
